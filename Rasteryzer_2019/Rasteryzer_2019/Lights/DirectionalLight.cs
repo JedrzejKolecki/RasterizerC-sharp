@@ -38,7 +38,7 @@ namespace Rasteryzer_2019.Lights
         {
             shininess = 2f;
 
-            Vector3 diffuseColor = new Vector3(20, 10, 200);
+            Vector3 diffuseColor = new Vector3(0, 0, 200);
             Vector3 specularColor = new Vector3(100, 100, 100);
 
             Vector3 N = vert.tr(normal).Normalize();
@@ -61,10 +61,10 @@ namespace Rasteryzer_2019.Lights
         public Vector3 CelShading(VertexProcessor vert, Vector3 normal)
         {
             //Console.WriteLine("CELSHADING");
-            shininess = 0f;
-            int _CelTone = 4;
+            shininess = 2f;
+            int _CelTone = 10;
 
-            Vector3 diffuseColor = new Vector3(20, 10, 200);
+            Vector3 diffuseColor = new Vector3(0, 0, 200);
             Vector3 specularColor = new Vector3(10, 10, 10);
 
             Vector3 N = vert.tr(normal).Normalize();
@@ -80,7 +80,7 @@ namespace Rasteryzer_2019.Lights
             diffuseColor *= (float)celShading;
             specularColor *= specularValue;
 
-            Vector3 col = diffuseColor;// + specularColor;// + specular;// + (specular*255);
+            Vector3 col = diffuseColor+ specularColor;// + specular;// + (specular*255);
             return col;
         }
 
@@ -88,14 +88,15 @@ namespace Rasteryzer_2019.Lights
 
         public Vector3 GoochShading(VertexProcessor vert, Vector3 normal)
         {
-            float alfa = 0.25f;
-            float beta = 0.5f;
+            shininess = 2f;
+            float alfa = 0.5f;
+            float beta = 0.25f;
 
-            Vector3 coolColor = new Vector3(250, 0, 0);
-            Vector3 warmColor = new Vector3(0, 0, 250);
+            Vector3 coolColor = new Vector3(0, 0, 255);
+            Vector3 warmColor = new Vector3(255, 0, 0);
 
             Vector3 diffuseColor = new Vector3(0, 0, 0);
-            Vector3 specularColor = new Vector3(100, 100, 100);
+            Vector3 specularColor = new Vector3(50, 50, 50);
 
             Vector3 N = vert.tr(normal).Normalize();
             Vector3 V = vert.tr(position).Normalize();
@@ -113,7 +114,7 @@ namespace Rasteryzer_2019.Lights
             coolColor = coolColor + diffuseColor * alfa;
             warmColor = warmColor + diffuseColor * beta;
 
-            Vector3 gooch = (warmColor * (1.0f - wsp)) + (coolColor * wsp);// + specularColor;
+            Vector3 gooch = (warmColor * (1.0f - wsp)) + (coolColor * wsp) + specularColor;
             return gooch;
         }
     }
