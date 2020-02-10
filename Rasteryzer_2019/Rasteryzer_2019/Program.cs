@@ -39,8 +39,8 @@ namespace Rasteryzer_2019
             Vector3 p5 = new Vector3(.1f, .0f, .4f);
             Vector3 p6 = new Vector3(-0.5f, .6f, .5f);
 
-            Vector3 p0 = new Vector3(1f, 5f, 0f); //0f, .5f, 1f 0f, -0.5f, -5f 0f, 1f, 5f
-            PointLight light = new PointLight(p0);
+            Vector3 p0 = new Vector3(1f, 5f, 5f); //0f, .5f, 1f 0f, -0.5f, -5f 0f, 1f, 5f
+            DirectionalLight light = new DirectionalLight(p0);
             //
 
             Vector3 p7 = new Vector3(-0.859375f, 0.382812f, -0.382812f);

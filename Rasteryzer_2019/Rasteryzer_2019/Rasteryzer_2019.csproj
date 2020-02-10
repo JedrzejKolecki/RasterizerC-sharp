@@ -54,7 +54,7 @@
     <Compile Include="Geometry\ObjMesh.cs" />
     <Compile Include="Geometry\SimpleTriangle.cs" />
     <Compile Include="Lights\Light.cs" />
-    <Compile Include="Lights\PointLight.cs" />
+    <Compile Include="Lights\DirectionalLight.cs" />
     <Compile Include="Math\Matrix.cs" />
     <Compile Include="Geometry\Mesh.cs" />
     <Compile Include="Program.cs" />

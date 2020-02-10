@@ -43,3 +43,11 @@ E:\PolitechnikaLodzka_Semestr_II\Poprawka normalek\OSWIETLENIE_RASTERYZER\Raster
 E:\PolitechnikaLodzka_Semestr_II\Poprawka normalek\OSWIETLENIE_RASTERYZER\Rasteryzer_2019\Rasteryzer_2019\obj\Debug\Rasteryzer_2019.csproj.CopyComplete
 E:\PolitechnikaLodzka_Semestr_II\Poprawka normalek\OSWIETLENIE_RASTERYZER\Rasteryzer_2019\Rasteryzer_2019\obj\Debug\Rasteryzer_2019.exe
 E:\PolitechnikaLodzka_Semestr_II\Poprawka normalek\OSWIETLENIE_RASTERYZER\Rasteryzer_2019\Rasteryzer_2019\obj\Debug\Rasteryzer_2019.pdb
+E:\PolitechnikaLodzka_Semestr_II\RasterizerC-sharp\Rasteryzer_2019\Rasteryzer_2019\bin\Debug\Rasteryzer_2019.exe.config
+E:\PolitechnikaLodzka_Semestr_II\RasterizerC-sharp\Rasteryzer_2019\Rasteryzer_2019\bin\Debug\Rasteryzer_2019.exe
+E:\PolitechnikaLodzka_Semestr_II\RasterizerC-sharp\Rasteryzer_2019\Rasteryzer_2019\bin\Debug\Rasteryzer_2019.pdb
+E:\PolitechnikaLodzka_Semestr_II\RasterizerC-sharp\Rasteryzer_2019\Rasteryzer_2019\bin\Debug\CjClutter.ObjLoader.Loader.pdb
+E:\PolitechnikaLodzka_Semestr_II\RasterizerC-sharp\Rasteryzer_2019\Rasteryzer_2019\obj\Debug\Rasteryzer_2019.csprojAssemblyReference.cache
+E:\PolitechnikaLodzka_Semestr_II\RasterizerC-sharp\Rasteryzer_2019\Rasteryzer_2019\obj\Debug\Rasteryzer_2019.csproj.CopyComplete
+E:\PolitechnikaLodzka_Semestr_II\RasterizerC-sharp\Rasteryzer_2019\Rasteryzer_2019\obj\Debug\Rasteryzer_2019.exe
+E:\PolitechnikaLodzka_Semestr_II\RasterizerC-sharp\Rasteryzer_2019\Rasteryzer_2019\obj\Debug\Rasteryzer_2019.pdb

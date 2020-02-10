@@ -11,5 +11,8 @@ namespace Rasteryzer_2019
     {
         Vector3 Calculate(VertexProcessor vert, Vertex v);
         Vector3 Calculate(VertexProcessor vert, Vector3 normal);
+
+        Vector3 CelShading(VertexProcessor vert, Vector3 normal);
+        Vector3 GoochShading(VertexProcessor vert, Vector3 normal);
     }
 }
