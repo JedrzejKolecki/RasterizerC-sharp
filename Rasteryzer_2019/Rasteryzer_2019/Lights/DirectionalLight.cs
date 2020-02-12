@@ -10,8 +10,6 @@ namespace Rasteryzer_2019.Lights
     class DirectionalLight : Light
     {
         Vector3 position;
-        Vector3 diffuse;
-        Vector3 specular;
         float shininess;
 
         public DirectionalLight(Vector3 pos)
@@ -37,7 +35,7 @@ namespace Rasteryzer_2019.Lights
             diffuseColor *= diffuseValue;
             specularColor *= specularValue;
 
-            Vector3 col = diffuseColor + specularColor;// + specular;// + (specular*255);
+            Vector3 col = diffuseColor + specularColor;
             return col;
         }
 
@@ -57,7 +55,7 @@ namespace Rasteryzer_2019.Lights
             float specularValue = (float)Math.Pow(R.Dot(V), shininess);
 
             //attentuation
-            diffuseValue = diffuseValue * (1.0f / (1.0f + (0.25f * L.GetLength() * L.GetLength())));
+            //diffuseValue = diffuseValue * (1.0f / (1.0f + (0.25f * L.GetLength() * L.GetLength())));
 
             diffuseColor *= diffuseValue;
             specularColor *= specularValue;
@@ -70,7 +68,6 @@ namespace Rasteryzer_2019.Lights
 
         public Vector3 CelShading(VertexProcessor vert, Vector3 normal)
         {
-            //Console.WriteLine("CELSHADING");
             shininess = 2f;
             int _CelTone = 10;
 
@@ -90,17 +87,17 @@ namespace Rasteryzer_2019.Lights
             diffuseColor *= (float)celShading;
             specularColor *= specularValue;
 
-            Vector3 col = diffuseColor + specularColor;// + specular;// + (specular*255);
+            Vector3 col = diffuseColor + specularColor;
             return col;
         }
 
-        //shader Gooch
+        
 
         public Vector3 GoraudShading(VertexProcessor vert, Vertex v1, Vertex v2, Vertex v3)
         {
-            Vector3 col = Lerp(v1.light, v2.light, 1);
-            Vector3 col2 = Lerp(v1.light, v3.light, 1);
-            col = Lerp(col, col2, 0.1f);
+            Vector3 col = Lerp(v1.light, v2.light, 0.5f);
+            Vector3 col2 = Lerp(v1.light, v3.light, 0.5f);
+            col = Lerp(col, col2, 0.5f);
 
             return col;
         }
@@ -120,6 +117,7 @@ namespace Rasteryzer_2019.Lights
             return firstFloat * (1 - by) + secondFloat * by;
         }
 
+        //shader Gooch
         public Vector3 GoochShading(VertexProcessor vert, Vector3 normal)
         {
             shininess = 2f;

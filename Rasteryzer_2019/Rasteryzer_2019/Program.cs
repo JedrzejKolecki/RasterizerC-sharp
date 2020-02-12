@@ -71,14 +71,12 @@ namespace Rasteryzer_2019
             {
                 Vector3 pos = new Vector3(l.X, l.Y, l.Z);
                 Vertex newVert = new Vertex(pos);
-                //newVert.position.showVector();
                 obj.vertexes.Add(newVert);
             }
 
             foreach (ObjLoader.Loader.Data.VertexData.Normal l in result.Normals)
             {
                 Vector3 norm = new Vector3(l.X, l.Y, l.Z);
-                //newVert.position.showVector();
                 normals.Add(norm);
             }
 
@@ -94,7 +92,6 @@ namespace Rasteryzer_2019
                 foreach (ObjLoader.Loader.Data.Elements.Face f in n.Faces)
                 {
                     sw.WriteLine("Face: " + a);
-                    //Console.WriteLine();
                     for (int i=0; i<f._vertices.Count; i++)
                     {
                         indexes.Add(f._vertices[i].VertexIndex-1);
@@ -102,7 +99,6 @@ namespace Rasteryzer_2019
                     }
                     a++;
                     sw.WriteLine("\n");
-                    //Console.WriteLine("Ilosc werteksów w scianach do FaceVertex: " + f._vertices.Count());
                 }
             }
 

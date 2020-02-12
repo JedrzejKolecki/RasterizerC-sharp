@@ -36,11 +36,9 @@ namespace Rasteryzer_2019.Geometry
         public void DrawMesh(Rasterization rasterizer, VertexProcessor processor, Light l)
         {
             System.Console.WriteLine("Ilosc indeksow: " + indexes.Count);
-            //MakeNormals();
 
             for (int i = 0; i < indexes.Count; i += 3)
             {
-                //MakeNormals(indexes[i], indexes[i + 1], indexes[i + 2]); // za duzo razy tu leci
                 rasterizer.Triangle(processor.tr(vertexes[indexes[i]].position), processor.tr(vertexes[indexes[i + 1]].position), processor.tr(vertexes[indexes[i + 2]].position), vertexes[indexes[i]], vertexes[indexes[i + 1]], vertexes[indexes[i+2]], l, processor);
                 stream.WriteLine("Indeks: " + indexes[i] + " " + indexes[i + 1] + " " + indexes[i + 2]);
                 stream.WriteLine("Wierzchołki: " + vertexes[indexes[i]].position.ToString() + " | " + vertexes[indexes[i+1]].position.ToString() + " | " + vertexes[indexes[i+2]].position.ToString());
@@ -55,7 +53,7 @@ namespace Rasteryzer_2019.Geometry
                 Vector3 V = vertexes[indexes[third]].position - vertexes[indexes[first]].position;
 
                 Vector3 normal = U.Cross(V);
-                normal = normal.Normalize(); //normalne wykraczaja poza 2
+                normal = normal.Normalize(); 
                 normal.showVector();
                 vertexes[indexes[first]].normal = normal;
                 vertexes[indexes[second]].normal = normal;
