@@ -104,10 +104,10 @@ namespace Rasteryzer_2019
                                     //Vector3 normal = (v2.normal - v1.normal).Cross(v3.normal - v1.normal); //normalna ściany
                                     normal.Normalize();
 
-                                    //Vector3 light = l.Calculate(vert, normal);
+                                    Vector3 light = l.Calculate(vert, normal);
                                     //Vector3 light = l.GoochShading(vert, normal);
-                                    Vector3 light = l.CelShading(vert, normal);
-                                    
+                                    //Vector3 light = l.CelShading(vert, normal);
+                                    //Vector3 light = l.GoraudShading(vert, v1, v2, v3);
                                     Color col = Color.FromArgb(maxCol((int)(ambient.X + light.X)), maxCol((int)(ambient.Y + (int)light.Y)), maxCol((int)(ambient.Z + (int)light.Z)));
                                     
                                     //OKRESLANIE KOLORU NA PODSTAWIE BARYCENTRYCZNYCH

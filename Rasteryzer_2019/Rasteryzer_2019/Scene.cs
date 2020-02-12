@@ -16,8 +16,8 @@ namespace Rasteryzer_2019
                 m.MakeNormals();
                 foreach (Light l in lights)
                 {
+                    m.Light(l, v);
                     m.DrawMesh(r, v, l);
-                    //m.Light(l, v);
                 }
                 
             }

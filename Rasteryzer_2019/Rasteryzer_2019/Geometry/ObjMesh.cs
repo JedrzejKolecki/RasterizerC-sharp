@@ -29,7 +29,7 @@ namespace Rasteryzer_2019.Geometry
         {
             foreach (Vertex v in vertexes)
             {
-                //v.light = l.Calculate(processor, v);
+                v.light = l.Calculate(processor, v);
             }
         }
 

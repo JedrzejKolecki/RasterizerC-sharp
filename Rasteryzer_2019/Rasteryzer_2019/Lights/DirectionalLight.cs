@@ -19,25 +19,32 @@ namespace Rasteryzer_2019.Lights
             this.position = pos;
         }
 
+        //dla Gorauda
         public Vector3 Calculate(VertexProcessor vert, Vertex v)
         {
-            shininess = 1f;
-            Vector3 N = vert.tr(v.normal);
-            Vector3 V = vert.tr(position);
+            shininess = 2f;
+            Vector3 diffuseColor = new Vector3(0, 0, 200);
+            Vector3 specularColor = new Vector3(100, 100, 100);
+
+            Vector3 N = vert.tr(v.normal).Normalize();
+            Vector3 V = vert.tr(position).Normalize();
             Vector3 L = (V - position).Normalize();
             Vector3 R = L.Reflect(L, N);
-            float diffuseValue = Math.Max(0,L.Dot(N));
+
+            float diffuseValue = Math.Max(0.0f, L.Dot(N));
             float specularValue = (float)Math.Pow(R.Dot(V), shininess);
-            diffuse = new Vector3(diffuseValue, diffuseValue, diffuseValue);
-            specular = new Vector3(specularValue, specularValue, specularValue);
-            Vector3 col = (diffuse * 255) + specular ;
+
+            diffuseColor *= diffuseValue;
+            specularColor *= specularValue;
+
+            Vector3 col = diffuseColor + specularColor;// + specular;// + (specular*255);
             return col;
         }
 
         public Vector3 Calculate(VertexProcessor vert, Vector3 normal)
         {
-            shininess = 2f;
 
+            shininess = 2f;
             Vector3 diffuseColor = new Vector3(0, 0, 200);
             Vector3 specularColor = new Vector3(100, 100, 100);
 
@@ -46,8 +53,11 @@ namespace Rasteryzer_2019.Lights
             Vector3 L = (V - position).Normalize();
             Vector3 R = L.Reflect(L, N);
 
-            float diffuseValue = Math.Max(0, L.Dot(N));
+            float diffuseValue = Math.Max(0.1f, L.Dot(N));
             float specularValue = (float)Math.Pow(R.Dot(V), shininess);
+
+            //attentuation
+            diffuseValue = diffuseValue * (1.0f / (1.0f + (0.25f * L.GetLength() * L.GetLength())));
 
             diffuseColor *= diffuseValue;
             specularColor *= specularValue;
@@ -80,11 +90,35 @@ namespace Rasteryzer_2019.Lights
             diffuseColor *= (float)celShading;
             specularColor *= specularValue;
 
-            Vector3 col = diffuseColor+ specularColor;// + specular;// + (specular*255);
+            Vector3 col = diffuseColor + specularColor;// + specular;// + (specular*255);
             return col;
         }
 
         //shader Gooch
+
+        public Vector3 GoraudShading(VertexProcessor vert, Vertex v1, Vertex v2, Vertex v3)
+        {
+            Vector3 col = Lerp(v1.light, v2.light, 1);
+            Vector3 col2 = Lerp(v1.light, v3.light, 1);
+            col = Lerp(col, col2, 0.1f);
+
+            return col;
+        }
+
+        Vector3 Lerp(Vector3 first, Vector3 second, float by)
+        {
+            float retX = LerpValue(first.X, second.Y, by);
+            float retY = LerpValue(first.Y, second.Y, by);
+            float retZ = LerpValue(first.Z, second.Z, by);
+
+            Vector3 col = new Vector3(retX, retY, retZ);
+            return col;
+        }
+
+        float LerpValue(float firstFloat, float secondFloat, float by)
+        {
+            return firstFloat * (1 - by) + secondFloat * by;
+        }
 
         public Vector3 GoochShading(VertexProcessor vert, Vector3 normal)
         {

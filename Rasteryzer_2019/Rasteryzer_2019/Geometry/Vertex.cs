@@ -11,6 +11,7 @@ namespace Rasteryzer_2019
         public Vector3 position;
         public Vector3 normal;
         public int index;
+        public Vector3 light;
 
         public Vertex(Vector3 pos)
         {

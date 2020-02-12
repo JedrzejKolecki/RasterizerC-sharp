@@ -14,5 +14,6 @@ namespace Rasteryzer_2019
 
         Vector3 CelShading(VertexProcessor vert, Vector3 normal);
         Vector3 GoochShading(VertexProcessor vert, Vector3 normal);
+        Vector3 GoraudShading(VertexProcessor vert, Vertex v1, Vertex v2, Vertex v3);
     }
 }
