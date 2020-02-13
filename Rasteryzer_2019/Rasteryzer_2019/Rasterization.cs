@@ -105,7 +105,7 @@ namespace Rasteryzer_2019
 
                             //OKRESLANIE KOLORU NA PODSTAWIE BARYCENTRYCZNYCH
                             //Color col = Color.FromArgb(maxCol((int)(255 * lambda1)), maxCol((int)(255 * lambda2)), maxCol((int)(255 * lambda3)));
-                            Color col = Color.FromArgb(maxCol((int)(color.X)), maxCol((int)(color.Y)), maxCol((int)(color.Z)));
+                            Color col = Color.FromArgb(maxCol((int)(color.X + ambient.X)), maxCol((int)(color.Y + ambient.Y)), maxCol((int)(color.Z + ambient.Z)));
                             buff.depthBuffer[x, y] = depth;
                                     buff.colorBuffer.SetPixel(x, y, col);
                             }

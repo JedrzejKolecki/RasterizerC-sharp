@@ -61,7 +61,9 @@ namespace Rasteryzer_2019
             SimpleTriangle t3 = new SimpleTriangle(v7, v8, v9);
             ObjMesh obj = new ObjMesh();
 
-            var fileStream = new FileStream("speheres4.obj", FileMode.Open);//dwie_kule.objspeheres4.objsphere.objnew FileStream("monkey.obj", FileMode.Open);
+            Console.WriteLine("Podaj nazwe pliku OBJ: ");
+            string nameObj = Console.ReadLine();
+            var fileStream = new FileStream(nameObj, FileMode.Open);//"finalTest.obj"dwie_kule.objspeheres4.objsphere.objnew FileStream("monkey.obj", FileMode.Open);
             var result = objLoader.Load(fileStream);
 
             List<Vector3> normals = new List<Vector3>();

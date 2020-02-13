@@ -20,7 +20,7 @@ namespace Rasteryzer_2019
             obj2world = new Matrix4();
             
             //skalowanie sceny
-            Vector3 scale = new Vector3(1.8f, 1.8f, 1.8f);
+            Vector3 scale = new Vector3(.5f, .5f, .5f);
             MultiplyByScale(scale);
 
             //obrot sceny
