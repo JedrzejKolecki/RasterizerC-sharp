@@ -10,7 +10,6 @@ namespace Rasteryzer_2019
     {
         public Scene(List<Mesh> meshList, List<Light> lights, Rasterization r, VertexProcessor v)
         {
-            //rysowanie sceny i zapis do bufora
             foreach (Mesh m in meshList)
             {
                 m.MakeNormals();
@@ -19,7 +18,6 @@ namespace Rasteryzer_2019
                     m.Light(l, v);
                     m.DrawMesh(r, v, l);
                 }
-                
             }
         }
     }

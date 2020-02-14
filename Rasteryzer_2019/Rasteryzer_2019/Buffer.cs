@@ -72,77 +72,7 @@ namespace Rasteryzer_2019
         //zapis obrazu
         public void SaveImage()
         {
-            //Filter(3);
-            colorBuffer.Save("imageRasterizer.bmp", ImageFormat.Bmp);
+            colorBuffer.Save("finalRender.png", ImageFormat.Png);
         }
-
-        public void Filter(int size)
-        {
-            int[,] mask = new int[size, size];
-            Color[,] finalImage = new Color[colorBuffer.Width, colorBuffer.Height];
-            List<Color> list = new List<Color>();
-            Color median;
-
-            for (int i = 0; i <= finalImage.GetLength(0) - mask.GetLength(0); i++)
-            {
-                for (int j = 0; j <= finalImage.GetLength(1) - mask.GetLength(1); j++)
-                {
-                    for (int x = i; x <= (mask.GetLength(0) - 1) + i; x++)
-                    {
-                        for (int y = j; y <= (mask.GetLength(1) - 1) + j; y++)
-                        {
-                            list.Add(colorBuffer.GetPixel(x,y));
-                        }
-                    }
-
-                    median = Median(list); //dla mediany
-                    list.Clear();
-
-                    finalImage[i, j] = median;
-
-                    for (int x =0; x< colorBuffer.Width; x++)
-                        for (int y = 0; y< colorBuffer.Height; y++)
-                        {
-                            colorBuffer.SetPixel(x, y, finalImage[x, y]);
-                        }
-                }
-            }
-        }
-
-        private Color Median(List<Color> list)
-        {
-            //najpierw sortuj liste
-            List<int> red = new List<int>();
-            List<int> green = new List<int>();
-            List<int> blue = new List<int>();
-
-            int redMedian;
-            int greenMedian;
-            int blueMedian;
-
-            //tworzenie list wszystkich wartosci poszczegolnych kanalow
-            foreach (Color c in list)
-            {
-                red.Add(c.R);
-                green.Add(c.G);
-                blue.Add(c.B);
-            }
-
-            //sortowanie wszystkich wartosci w kanalach
-            red.Sort();
-            green.Sort();
-            blue.Sort();
-
-            //wyznaczenie elementu srodkowego
-            redMedian = red.ElementAt(red.Count / 2);
-            greenMedian = green.ElementAt(red.Count / 2);
-            blueMedian = blue.ElementAt(red.Count / 2);
-
-            Color col = Color.FromArgb(redMedian, greenMedian, blueMedian);
-
-            return col;
-        }
-
-
     }
 }

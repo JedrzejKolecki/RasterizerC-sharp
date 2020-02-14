@@ -84,29 +84,11 @@ namespace Rasteryzer_2019
                             if (depth < buff.depthBuffer[x, y])
                             {
                                     //OSWIETLENIE PER VERTEX
-                                    float colorvalue = lambda1 * pos1.X + lambda2 * pos2.Y + lambda3 * pos3.Z;
                                     Vector3 ambient = new Vector3(50,0,0);
-                            //Vector3 normal = (v1.normal + v2.normal + v3.normal) / 3;
-                            //normal.Normalize();
-
-                            //v1.light *= lambda1;
-                            //v2.light *= lambda2;
-                            //v3.light *= lambda3;
-
-                            Vector3 color = (v1.light * lambda1) + (v2.light * lambda2) + (v3.light * lambda3);
-
-                            //--Model oświetlenia
-                                    //Vector3 light = l.Calculate(vert, normal);
-                                    //Vector3 light = l.GoochShading(vert, normal);
-                                    //Vector3 light = l.CelShading(vert, normal);
-                            Vector3 light = l.GoraudShading(vert, v1, v2, v3);
-
-                            //Color col = Color.FromArgb(maxCol((int)((ambient.X + light.X) * (1))), maxCol((int)((ambient.Y + (int)light.Y) * (1))), maxCol((int)((ambient.Z + (int)light.Z) * (1))));
-
-                            //OKRESLANIE KOLORU NA PODSTAWIE BARYCENTRYCZNYCH
-                            //Color col = Color.FromArgb(maxCol((int)(255 * lambda1)), maxCol((int)(255 * lambda2)), maxCol((int)(255 * lambda3)));
-                            Color col = Color.FromArgb(maxCol((int)(color.X + ambient.X)), maxCol((int)(color.Y + ambient.Y)), maxCol((int)(color.Z + ambient.Z)));
-                            buff.depthBuffer[x, y] = depth;
+                                    Vector3 color = (v1.light * lambda1) + (v2.light * lambda2) + (v3.light * lambda3);
+                                    //Vector3 light = l.GoraudShading(vert, v1, v2, v3);
+                                    Color col = Color.FromArgb(maxCol((int)(color.X + ambient.X)), maxCol((int)(color.Y + ambient.Y)), maxCol((int)(color.Z + ambient.Z)));
+                                    buff.depthBuffer[x, y] = depth;
                                     buff.colorBuffer.SetPixel(x, y, col);
                             }
                         }

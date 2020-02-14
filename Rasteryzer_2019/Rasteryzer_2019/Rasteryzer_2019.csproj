@@ -48,9 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fragment.cs" />
-    <Compile Include="Geometry\Face.cs" />
-    <Compile Include="Geometry\ObjData.cs" />
     <Compile Include="Geometry\ObjMesh.cs" />
     <Compile Include="Geometry\SimpleTriangle.cs" />
     <Compile Include="Lights\Light.cs" />

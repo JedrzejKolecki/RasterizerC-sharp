@@ -54,9 +54,6 @@ namespace Rasteryzer_2019.Lights
             float diffuseValue = Math.Max(0.1f, L.Dot(N));
             float specularValue = (float)Math.Pow(R.Dot(V), shininess);
 
-            //attentuation
-            //diffuseValue = diffuseValue * (1.0f / (1.0f + (0.25f * L.GetLength() * L.GetLength())));
-
             diffuseColor *= diffuseValue;
             specularColor *= specularValue;
 

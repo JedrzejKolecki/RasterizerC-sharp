@@ -20,7 +20,7 @@ namespace Rasteryzer_2019
             obj2world = new Matrix4();
             
             //skalowanie sceny
-            Vector3 scale = new Vector3(.5f, .5f, .5f);
+            Vector3 scale = new Vector3(.7f, .7f, .7f);
             MultiplyByScale(scale);
 
             //obrot sceny
@@ -129,7 +129,6 @@ namespace Rasteryzer_2019
         public Vector3 tr(Vector3 vertexPosition)
         {
             Vector4 verPos = new Vector4(vertexPosition);
-            //verPos = obj2view.MultiplyMatrixByVector(verPos);
             verPos = obj2proj.MultiplyMatrixByVector(verPos);
             Vector3 finalPos = new Vector3(verPos.X / verPos.W, verPos.Y / verPos.W, verPos.Z / verPos.W);
             return finalPos;
